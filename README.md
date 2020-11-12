@@ -2,5 +2,5 @@
 thinkphp filesystem
 1.version 
 	v1.0.2
-2.composer ÃüÁî
+2.composer å‘½ä»¤
 	composer require saastenant/thinkphp-filesystem
