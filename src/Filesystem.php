@@ -29,10 +29,10 @@ class Filesystem
     public function disk(string $name = null): Driver
     {
         
-        $name = $name ?: $this->app->config->get("filesystem_".$this->tenantId.".default");
+        $name = $name ?: $this->app->config->get("filesystem".$this->tenantId.".default");
 
         if (!isset($this->disks[$name])) {
-            $config = $this->app->config->get("filesystem_".$this->tenantId.".disks.{$name}");
+            $config = $this->app->config->get("filesystem".$this->tenantId.".disks.{$name}");
 
             $this->disks[$name] = App::factory($config['type'], '\\saastenant\\filesystem\\driver\\', $config);
         }
@@ -51,10 +51,10 @@ class Filesystem
     public function getConfig(string $name = null, $default = null)
     {
         if (!is_null($name)) {
-            return $this->app->config->get("filesystem_".$this->tenantId.".".$name, $default);
+            return $this->app->config->get("filesystem".$this->tenantId.".".$name, $default);
         }
 
-        return $this->app->config->get("filesystem_".$this->tenantId);
+        return $this->app->config->get("filesystem".$this->tenantId);
     }
 
     /**
